@@ -54,6 +54,11 @@
     img{
         height: 170px;
     }
+
+    .btn-city{
+        background-color: #004c97;
+        color: #fff;
+    }
 </style>
 
 {#await weather then weatherResponse}
@@ -63,7 +68,7 @@
             <label for="city-inp">Your City</label>
             <div class="inpts">
                 <input class="form-input" type="text" placeholder="London" name="city-inp" id="city-inp" >
-                <button type="submit">Go</button>
+                <button class="btn-city" type="submit">Go</button>
             </div>
         </div>
     <div class="weather-condition">
