@@ -1,32 +1,6 @@
 <script>
-    const options = {
-        method: 'GET',
-        headers: {
-            'X-RapidAPI-Key': 'cf383af0famsh20f2e7d81882c2bp1f1d41jsn3d2e6316a52b',
-            'X-RapidAPI-Host': 'weatherapi-com.p.rapidapi.com'
-        }
-    };
-    let city = "London"
-    const weather = fetch(`https://weatherapi-com.p.rapidapi.com/current.json?q=${city}&dt=2022-12-27`, options)
-        .then(response => response.json())
-        .then(response => {
-            const {current, location} = response
-            const {condition, is_day, last_updated, temp_c, wind_dir, wind_kph} = current
-            const {text, icon} = condition
-            const {country, localtime, name} = location
-
-            return {
-                country,
-                localtime,
-                condition: text,
-                icon,
-                name,
-                isDay: is_day,
-                temperature: temp_c,
-                windSpeed: wind_kph,
-                windDir: wind_dir
-            }
-        })
+    import {searchWeatherCity, city} from './services/weather'
+    $: weatherPromise = searchWeatherCity(city)
 </script>
 
 <style>
@@ -61,20 +35,21 @@
     }
 </style>
 
-{#await weather then weatherResponse}
-    <h2>Henrry Weather</h2>
+<h2>Henrry Weather</h2>
+{#await weatherPromise then weather}
     <div class="heather">
-        <div class="country-group">
+        <form class="country-group">
             <label for="city-inp">Your City</label>
             <div class="inpts">
                 <input class="form-input" type="text" placeholder="London" name="city-inp" id="city-inp" >
-                <button class="btn-city" type="submit">Go</button>
+                <button class="btn-city" type="submit" on:click={() => weather = searchWeatherCity(document.getElementById("city-inp").value)}>Go</button>
             </div>
-        </div>
+        </form>
     <div class="weather-condition">
-        <img src="{weatherResponse.icon}" alt="{weatherResponse.condition}">
-        <h1>{weatherResponse.temperature}°C</h1>
+        <img src="{weather.icon}" alt="{weather.condition}">
+        <h1>{weather.temperature}°C</h1>
     </div>
-    <span>{weatherResponse.condition}</span>
+    <span>{weather.condition}</span>
     </div>
+
 {/await}
