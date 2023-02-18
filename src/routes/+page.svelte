@@ -113,6 +113,8 @@
     .blowing-snow,
     .snow,
     .patchy-light-snow,
+    .patchy-moderate-snow,
+    .light-snow,
     .moderate-snow,
     .patchy-heavy-snow,
     .heavy-snow,
@@ -133,11 +135,25 @@
         left: 0;
     }
 
-    .snow,.light-snow-showers{
+    .snow,
+    .moderate-snow,
+    .light-snow,
+    .light-snow-showers,
+    .heavy-snow,
+    .patchy-light-snow,
+    .patchy-moderate-snow,
+    .patchy-heavy-snow{
         background-image: url(https://cdn.pixabay.com/photo/2015/02/20/16/59/deer-643340_960_720.jpg);
     }
 
-    .snow .title, .light-snow-showers .title{
+    .snow .title,
+    .moderate-snow .title,
+    .light-snow .title,
+    .light-snow-showers .title,
+    .heavy-snow .title,
+    .patchy-light-snow .title,
+    .patchy-moderate-snow .title,
+    .patchy-heavy-snow .title{
         color: #000;
     }
 
@@ -173,7 +189,16 @@
         background-image: url(https://cdn.pixabay.com/photo/2014/10/14/18/11/cloudscape-488478_960_720.jpg);
     }
 
-    .light-rain, .patchy-rain-nearby, .moderate-rain{
+    .light-rain,
+    .patchy-rain-nearby,
+    .moderate-rain,
+    .moderate-rain-at-times,
+    .torrential-rain-shower,
+    .light-rain-shower,
+    .moderate-or-heavy-rain-shower,
+    .heavy-rain,
+    .light-freezing-rain,
+    .moderate-or-heavy-freezing-rain{
         background-image: url(https://cdn.pixabay.com/photo/2020/06/18/07/56/railing-5312344_960_720.jpg);
     }
 
