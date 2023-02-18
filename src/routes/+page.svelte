@@ -78,18 +78,53 @@
     }
 
     .heather p{
-        margin: 2px;
+        margin: 2px;  
     }
 
     .partly-cloudy,
     .sunny,
     .light-rain,
+    .moderate-rain,
+    .moderate-rain-at-times,
+    .heavy-rain,
+    .light-freezing-rain,
+    .moderate-or-heavy-freezing-rain,
+    .light-rain-shower,
+    .moderate-or-heavy-rain-shower,
+    .torrential-rain-shower,
+    .patchy-rain-nearby,
     .clear,
     .overcast,
     .light-drizzle,
+    .freezing-drizzle,
+    .heavy-drizzle,
+    .patchy-light-drizzle,
     .fog,
-    .cloudy,.mist,
-    .patchy-rain-nearby{
+    .freezing-fog,
+    .cloudy,
+    .mist,
+    .patchy-snow-nearby,
+    .patchy-sleet-nearby,
+    .patch-freezing-drizzle-nearby,
+    .light-snow-showers,
+    .moderate-or-heavy-snow-showers,
+    .thundery-outbreaks-nearby,
+    .blizzard,
+    .blowing-snow,
+    .snow,
+    .patchy-light-snow,
+    .moderate-snow,
+    .patchy-heavy-snow,
+    .heavy-snow,
+    .light-sleet,
+    .light-sleet-showers,
+    .moderate-or-heavy-sleet-showers,
+    .moderate-or-heavy-sleet,
+    .light-showers-of-ice-pellets,
+    .patchy-light-rain-in-area-with-thunder,
+    .moderate-or-heavy-rain-in-area-with-thunder,
+    .patchy-light-snow-in-area-with-thunder,
+    .moderate-or-heavy-snow-in-area-with-thunder{
         background-position: center;
         background-size: cover;
         position: absolute;
@@ -98,15 +133,27 @@
         left: 0;
     }
 
-    .fog,.mist{
-        background-image: url(https://cdn.pixabay.com/photo/2018/08/21/23/29/forest-3622519_960_720.jpg);
+    .snow,.light-snow-showers{
+        background-image: url(https://cdn.pixabay.com/photo/2015/02/20/16/59/deer-643340_960_720.jpg);
     }
 
-    .fog .form-input, .fog .title, .mist .form-input, .mist .title{
+    .snow .title, .light-snow-showers .title{
         color: #000;
     }
 
-    .fog #city-inp, .fog .btn-city, .mist #city-inp, .mist .btn-city{
+    .patchy-snow-nearby, .patchy-sleet-nearby, .blizzard{
+        background-image: url(https://cdn.pixabay.com/photo/2013/06/08/01/37/thunderstorm-123035_960_720.jpg);
+    }
+
+    .fog,.mist,.freezing-fog{
+        background-image: url(https://cdn.pixabay.com/photo/2018/08/21/23/29/forest-3622519_960_720.jpg);
+    }
+
+    .fog #city-inp, .fog .title, .mist #city-inp, .mist .title, .overcast #city-inp{
+        color: #000;
+    }
+
+    .fog #city-inp, .fog .btn-city, .mist #city-inp, .mist .btn-city, .overcast #city-inp, .overcast .btn-city{
         border-color: #000;
     }
 
@@ -126,7 +173,7 @@
         background-image: url(https://cdn.pixabay.com/photo/2014/10/14/18/11/cloudscape-488478_960_720.jpg);
     }
 
-    .light-rain, .patchy-rain-nearby{
+    .light-rain, .patchy-rain-nearby, .moderate-rain{
         background-image: url(https://cdn.pixabay.com/photo/2020/06/18/07/56/railing-5312344_960_720.jpg);
     }
 
