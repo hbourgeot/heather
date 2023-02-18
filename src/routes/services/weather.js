@@ -13,7 +13,7 @@ export async function searchWeatherCity(citySearch){
     const response = await fetch(`https://weatherapi-com.p.rapidapi.com/current.json?q=${citySearch}&dt=2022-12-27`, options)
     const responseJson = await response.json()
     const {current, location} = responseJson
-    const {condition, is_day, temp_c, wind_dir, wind_kph} = current
+    const {condition, temp_c, wind_dir, wind_kph} = current
     const {text, icon} = condition
     const {country, localtime, name} = location
     return {
@@ -22,7 +22,6 @@ export async function searchWeatherCity(citySearch){
         condition: text,
         icon,
         name,
-        isDay: is_day,
         temperature: temp_c,
         windSpeed: wind_kph,
         windDir: wind_dir

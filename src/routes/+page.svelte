@@ -33,8 +33,11 @@
         background-color: #004c97;
         color: #fff;
     }
-</style>
 
+    .heather p{
+        margin: 2px;
+    }
+</style>
 <h2>Henrry Weather</h2>
 {#await weatherPromise then weather}
     <div class="heather">
@@ -45,11 +48,15 @@
                 <button class="btn-city" type="submit" on:click={() => weather = searchWeatherCity(document.getElementById("city-inp").value)}>Go</button>
             </div>
         </form>
-    <div class="weather-condition">
-        <img src="{weather.icon}" alt="{weather.condition}">
-        <h1>{weather.temperature}°C</h1>
-    </div>
-    <span>{weather.condition}</span>
+        <div class="weather-condition">
+            <img src="{weather.icon}" alt="{weather.condition}">
+            <h1>{weather.temperature}°C</h1>
+        </div>
+        <h2>{weather.name}, {weather.country}</h2>
+        <p>Local Time: {weather.localtime}</p>
+        <p>{weather.condition}</p>
+        <p>Wind Direction: {weather.windDir}</p>
+        <p>Wind Speed: {weather.windSpeed}km/h</p>
     </div>
 
 {/await}
