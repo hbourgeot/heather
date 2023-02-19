@@ -84,6 +84,7 @@
     .partly-cloudy,
     .sunny,
     .light-rain,
+    .patchy-rain-possible,
     .moderate-rain,
     .moderate-rain-at-times,
     .heavy-rain,
@@ -99,13 +100,11 @@
     .freezing-drizzle,
     .heavy-drizzle,
     .patchy-light-drizzle,
+    .patchy-freezing-drizzle-nearby,
     .fog,
     .freezing-fog,
     .cloudy,
     .mist,
-    .patchy-snow-nearby,
-    .patchy-sleet-nearby,
-    .patch-freezing-drizzle-nearby,
     .light-snow-showers,
     .moderate-or-heavy-snow-showers,
     .thundery-outbreaks-nearby,
@@ -116,23 +115,26 @@
     .patchy-moderate-snow,
     .light-snow,
     .moderate-snow,
+    .patchy-snow-nearby,
     .patchy-heavy-snow,
     .heavy-snow,
-    .light-sleet,
-    .light-sleet-showers,
-    .moderate-or-heavy-sleet-showers,
-    .moderate-or-heavy-sleet,
-    .light-showers-of-ice-pellets,
     .patchy-light-rain-in-area-with-thunder,
-    .moderate-or-heavy-rain-in-area-with-thunder,
-    .patchy-light-snow-in-area-with-thunder,
-    .moderate-or-heavy-snow-in-area-with-thunder{
+    .moderate-or-heavy-rain-with-thunder,
+    .patchy-light-snow-with-thunder,
+    .moderate-or-heavy-snow-with-thunder{
         background-position: center;
         background-size: cover;
         position: absolute;
         color: #fff;
         top: 0;
         left: 0;
+    }
+
+    .patchy-light-rain-with-thunder,
+    .moderate-or-heavy-rain-with-thunder,
+    .patchy-light-snow-with-thunder,
+    .moderate-or-heavy-snow-with-thunder{
+        background-image: url(/src/assets//images/thunder.webp);
     }
 
     .snow,
@@ -143,7 +145,7 @@
     .patchy-light-snow,
     .patchy-moderate-snow,
     .patchy-heavy-snow{
-        background-image: url(https://cdn.pixabay.com/photo/2015/02/20/16/59/deer-643340_960_720.jpg);
+        background-image: url(/src/assets//images/snow.webp);
     }
 
     .snow .title,
@@ -158,11 +160,11 @@
     }
 
     .patchy-snow-nearby, .patchy-sleet-nearby, .blizzard{
-        background-image: url(https://cdn.pixabay.com/photo/2013/06/08/01/37/thunderstorm-123035_960_720.jpg);
+        background-image: url(/src/assets//images/blizzard.webp);
     }
 
     .fog,.mist,.freezing-fog{
-        background-image: url(https://cdn.pixabay.com/photo/2018/08/21/23/29/forest-3622519_960_720.jpg);
+        background-image: url(/src/assets//images/mist.webp);
     }
 
     .fog #city-inp, .fog .title, .mist #city-inp, .mist .title, .overcast #city-inp{
@@ -173,24 +175,29 @@
         border-color: #000;
     }
 
-    .light-drizzle{
-        background-image: url(https://cdn.pixabay.com/photo/2013/12/09/13/45/waterfall-225960_960_720.jpg);
+    .light-drizzle,
+    .freezing-drizzle,
+    .heavy-drizzle,
+    .patchy-light-drizzle,
+    .patchy-freezing-drizzle-nearby{
+        background-image: url(/src/assets//images/drizzle.webp);
     }
 
     .overcast{
-        background-image: url(https://cdn.pixabay.com/photo/2015/12/25/13/03/sky-1107579_960_720.jpg);
+        background-image: url(/src/assets//images/overcast.webp);
     }
 
     .clear{
-        background-image: url(https://cdn.pixabay.com/photo/2015/02/17/18/12/evening-lake-639699_960_720.jpg);
+        background-image: url(/src/assets//images/clear.webp);
     }
     
     .partly-cloudy, .cloudy{
-        background-image: url(https://cdn.pixabay.com/photo/2014/10/14/18/11/cloudscape-488478_960_720.jpg);
+        background-image: url(/src/assets//images/cloudy.webp);
     }
 
     .light-rain,
     .patchy-rain-nearby,
+    .patchy-rain-possible,
     .moderate-rain,
     .moderate-rain-at-times,
     .torrential-rain-shower,
@@ -199,11 +206,11 @@
     .heavy-rain,
     .light-freezing-rain,
     .moderate-or-heavy-freezing-rain{
-        background-image: url(https://cdn.pixabay.com/photo/2020/06/18/07/56/railing-5312344_960_720.jpg);
+        background-image: url(/src/assets//images/rain.webp);
     }
 
     .sunny{
-        background-image: url(https://cdn.pixabay.com/photo/2018/02/05/23/05/death-valley-3133502_960_720.jpg);
+        background-image: url(/src/assets//images/sunny.webp);
     }
 
     .title{
@@ -240,7 +247,7 @@
             <h1 class="temperature">{weather.temperature}°C</h1>
         </div>
         <div class="side2">
-            <form class="country-group">
+            <form class="country-group" method="post">
                 <div class="inpts">
                     <input class="form-input" type="text" placeholder="Type the city" name="city-inp" id="city-inp" >
                     <button class="btn-city" type="submit" on:click={() => weather = searchWeatherCity(document.getElementById("city-inp").value)}>Go</button>
