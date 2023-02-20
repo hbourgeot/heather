@@ -144,13 +144,15 @@
     .heavy-snow,
     .patchy-light-snow,
     .patchy-moderate-snow,
-    .patchy-heavy-snow{
+    .patchy-heavy-snow,
+    .blowing-snow{
         background-image: url(/src/assets//images/snow.webp);
     }
 
     .snow .title,
     .moderate-snow .title,
     .light-snow .title,
+    .blowing-snow .title,
     .light-snow-showers .title,
     .heavy-snow .title,
     .patchy-light-snow .title,
