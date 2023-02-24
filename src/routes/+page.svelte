@@ -21,9 +21,9 @@
 
     @media screen and (max-width:768px){
         .heather{
-            height: 150vh;
+            height: 145vh;
             grid-template-columns: 1fr;
-            grid-template-rows: 100vh 50vh;
+            grid-template-rows: 95vh 50vh;
         }
 
         .side2{
