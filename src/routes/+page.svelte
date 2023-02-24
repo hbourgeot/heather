@@ -4,9 +4,11 @@
 </script>
 
 <style>
+  @import url('https://fonts.googleapis.com/css2?family=Tilt+Warp&display=swap');
     *, *::before,*::after{
         box-sizing: border-box;
         margin: 0;
+        font-family: 'Tilt Warp', sans-serif;
     }
 
     .heather{
@@ -15,6 +17,18 @@
         display: grid;
         grid-template-columns: 2fr 1fr;
         justify-content: space-between;
+    }
+
+    @media screen and (max-width:768px){
+        .heather{
+            height: 150vh;
+            grid-template-columns: 1fr;
+            grid-template-rows: 100vh 50vh;
+        }
+
+        .side2{
+            height: 50vh;
+        }
     }
 
     .side1{
@@ -122,10 +136,11 @@
     .moderate-or-heavy-rain-with-thunder,
     .patchy-light-snow-with-thunder,
     .moderate-or-heavy-snow-with-thunder{
-        background-position: center;
+        background-attachment: fixed;
+        background-position: center bottom;
         background-size: cover;
         position: absolute;
-        color: #fff;
+        color: #ccc;
         top: 0;
         left: 0;
     }
@@ -147,18 +162,6 @@
     .patchy-heavy-snow,
     .blowing-snow{
         background-image: url(/src/assets//images/snow.webp);
-    }
-
-    .snow .title,
-    .moderate-snow .title,
-    .light-snow .title,
-    .blowing-snow .title,
-    .light-snow-showers .title,
-    .heavy-snow .title,
-    .patchy-light-snow .title,
-    .patchy-moderate-snow .title,
-    .patchy-heavy-snow .title{
-        color: #000;
     }
 
     .patchy-snow-nearby, .patchy-sleet-nearby, .blizzard{
@@ -216,7 +219,7 @@
     }
 
     .title{
-        position: absolute;
+        position: fixed;
         top: 5px;
         left: 5px;
         color: #ccc;
@@ -241,8 +244,8 @@
 </style>
 {#await weatherPromise then weather}
     <div class={`heather ${weather.condition.replace(/ /g, "-").toLowerCase()}`}>
+        <h2 class="title">Henrry Weather</h2>
         <div class="side1">
-            <h2 class="title">Henrry Weather</h2>
             <h2 class="city">{weather.name}, {weather.country}</h2>
             <p class="localtime">Local Time: {weather.localtime}</p>
             <p class="condition">{weather.condition}</p>
